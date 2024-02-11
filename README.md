@@ -1,6 +1,7 @@
 # Stopwatch
 
-Welcome to my project! This application allows users to track time efficiently with a beautifully designed stopwatch interface. 
+Welcome to my project! This application allows users to track time efficiently with a beautifully designed stopwatch interface.
+![Website screenshot](src/website-screenshot.png)
 
 ## Live Demo
 
