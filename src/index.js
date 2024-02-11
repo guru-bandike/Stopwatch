@@ -1,7 +1,7 @@
 // Selecting DOM elements for the stopwatch
 const body = document.querySelector("body");
 const container = document.querySelector("#container");
-const stopwatch = document.querySelector("#bar-elements");
+const barElementsContainer = document.querySelector("#bar-elements");
 const startButton = document.querySelector("#start-button");
 const stopButton = document.querySelector("#stop-button");
 const resetButton = document.querySelector("#reset-button");
@@ -25,7 +25,7 @@ for (let currbarNum = 1; currbarNum <= 60; currbarNum++) {
 }
 
 // Inserting bars into the DOM
-stopwatch.insertAdjacentHTML("afterbegin", barElements.join(""));
+barElementsContainer.insertAdjacentHTML("afterbegin", barElements.join(""));
 
 // Event listeners for the stopwatch buttons
 startButton.addEventListener("click", startInterval);
