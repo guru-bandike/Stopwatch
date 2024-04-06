@@ -17,39 +17,18 @@ body.dark {
 }
 body {
   font-family: system-ui;
-  background-image: radial-gradient(
-    var(--primary-color) 0.5px,
-    var(--background-primary-color) 0.5px
-  );
+  margin: 0;
+  background-image: radial-gradient(var(--primary-color) 0.5px, var(--background-primary-color) 0.5px);
   background-size: 10px 10px;
   color-scheme: var(--color-scheme);
-}
-
-/* Container */
-
-#container {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: auto;
-  opacity: 0;
-  transition: opacity 1s ease-out;
-}
-
-.animate-entry {
-  opacity: 1 !important;
 }
 
 /* Heading */
 
 header {
   width: 100%;
-  padding: 1%;
-  margin-top: -10px;
-  margin-bottom: 1%;
+  padding: 5px 0px;
+  margin: 0;
   backdrop-filter: blur(1px);
   background-color: rgba(136, 153, 215, 0.268);
 }
@@ -65,14 +44,32 @@ header {
   background-color: var(--background-primary-color);
 }
 
+/* Main container */
+
+main {
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.animate-entry {
+  opacity: 1 !important;
+}
+
 /* Stopwatch */
 
 #stopwatch-container {
   width: 400px;
   height: 400px;
-  border-radius: 50%;
-  margin-bottom: 50px;
   position: relative;
+  border-radius: 50%;
+  margin: 10px 0px 50px 0px;
   background-color: transparent;
 }
 
@@ -133,7 +130,7 @@ header {
 
 /* Theme toggle button */
 
-#theme-toggle {
+.toggle-theme {
   background-color: transparent;
   position: absolute;
   top: 75%;
@@ -147,17 +144,18 @@ header {
   align-items: center;
 }
 
-#theme-toggle svg:hover {
+.toggle-theme svg:hover {
   fill: var(--theme-toggle-icon-color);
 }
 
 /* Buttons */
 
 #stopwatch-buttons-container {
-  width: 100%;
+  width: 450px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-top: -50px;
 }
 
 #stopwatch-buttons-container button {
@@ -179,10 +177,6 @@ header {
   z-index: 1;
 }
 
-#stopwatch-buttons-container #start-button {
-  color: var(--primary-color);
-}
-
 #stopwatch-buttons-container button:hover {
   color: var(--background-secondary-color);
   background-color: var(--secondary-color);
@@ -192,12 +186,16 @@ header {
   background-color: #f0c6a8;
 }
 
-#stopwatch-buttons-container #start-button:hover {
+#stopwatch-buttons-container .start-button {
+  color: var(--primary-color);
+}
+
+#stopwatch-buttons-container .start-button:hover {
   color: var(--background-secondary-color);
   background-color: var(--primary-color);
 }
 
-#stopwatch-buttons-container #start-button:active {
+#stopwatch-buttons-container .start-button:active {
   background-color: #6e7a86;
 }
 
@@ -213,4 +211,3 @@ header {
     margin: 5px;
   }
 }
-
