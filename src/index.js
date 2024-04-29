@@ -2,9 +2,6 @@
 const body = document.querySelector('body');
 const mainContainer = document.querySelector('main');
 const barElementsContainer = document.querySelector('#bar-elements');
-const startButton = document.querySelector('.start-button');
-const stopButton = document.querySelector('.stop-button');
-const resetButton = document.querySelector('.reset-button');
 const minutesAndSecondsElement = document.querySelector('#minutesAndSeconds');
 const millisecondsElement = document.querySelector('#milliseconds');
 const tickingSound = new Audio('src/audios/ticking-sound.mp3');
@@ -26,35 +23,43 @@ barElementsContainer.insertAdjacentHTML('afterbegin', barElements.join(''));
 
 // Event listener for handling click events on the document
 document.addEventListener('click', (event) => {
-  const target = event.target;
+  const target = event.target; // Get the element that was clicked
 
+  // Check if the clicked element is the start button
+  const startButton = document.querySelector('.start-button');
   if (target === startButton) {
-    startInterval();
-    target.textContent = 'Stop';
+    startInterval(); // Start the interval
+    target.textContent = 'Stop'; // Change button text to 'Stop'
     target.classList.toggle('start-button');
     target.classList.toggle('stop-button');
-    return;
+    return; // Exit the event listener
   }
 
+  // Check if the clicked element is the stop button
+  const stopButton = document.querySelector('.stop-button');
   if (target === stopButton) {
-    stopInterval();
-    target.textContent = 'Start';
+    stopInterval(); // Stop the interval
+    target.textContent = 'Start'; // Change button text to 'Start'
     target.classList.toggle('start-button');
     target.classList.toggle('stop-button');
-    return;
+    return; // Exit the event listener
   }
 
+  // Check if the clicked element is the reset button
+  const resetButton = document.querySelector('.reset-button');
   if (target === resetButton) {
-    resetInterval();
-    return;
+    resetInterval(); // Reset the interval
+    return; // Exit the event listener
   }
 
+  // Check if the clicked element is inside a toggle theme button
   const toggleThemeButton = target.closest('.toggle-theme');
   if (toggleThemeButton) {
-    toggleTheme();
-    return;
+    toggleTheme(); // Toggle the theme
+    return; // Exit the event listener
   }
 });
+
 
 // Function to start the stopwatch
 function startInterval() {
@@ -69,7 +74,7 @@ function startInterval() {
       if (seconds === 60) {
         seconds = 0;
         minutes += 1;
-        resetBars(); // Reset the virtual representation
+        resetBars(); // Reset the virtual bar representation
       }
     }
 
