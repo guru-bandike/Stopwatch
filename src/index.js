@@ -48,6 +48,7 @@ document.addEventListener('click', (event) => {
   // Check if the clicked element is the reset button
   const resetButton = document.querySelector('.reset-button');
   if (target === resetButton) {
+    stopButton.click();
     resetInterval(); // Reset the interval
     return; // Exit the event listener
   }
@@ -59,7 +60,6 @@ document.addEventListener('click', (event) => {
     return; // Exit the event listener
   }
 });
-
 
 // Function to start the stopwatch
 function startInterval() {
@@ -111,7 +111,8 @@ function resetBars(deleyTime) {
     const currentBarId = `barId${barNumber}`;
     setTimeout(() => {
       // Choose dark grey highlight color to every 5th bar to maintain the visual design
-      const currBarHighlightColor = barNumber % 5 === 0 ? 'var(--bar-secondary-color)' : 'var(--bar-primary-color)';
+      const currBarHighlightColor =
+        barNumber % 5 === 0 ? 'var(--bar-secondary-color)' : 'var(--bar-primary-color)';
       document.querySelector(`#${currentBarId} p`).style.backgroundColor = currBarHighlightColor;
     }, deleyTime * (59 - barNumber)); // Delay ensures a gradual reset effect
   }
@@ -121,7 +122,8 @@ function resetBars(deleyTime) {
 function highlightCurrentBar(currentSecond) {
   const currentBarId = `barId${currentSecond}`;
   // Chooses blue highlight color to every 5th bar to maintain the visual design
-  const currBarHighlightColor = currentSecond % 5 === 0 ? 'var(--primary-color)' : 'var(--secondary-color)';
+  const currBarHighlightColor =
+    currentSecond % 5 === 0 ? 'var(--primary-color)' : 'var(--secondary-color)';
   document.querySelector(`#${currentBarId} p`).style.backgroundColor = currBarHighlightColor;
   tickingSound.volume = 0.5;
   tickingSound.play(); // plays ticking sound when bar gets highlighted
