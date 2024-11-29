@@ -48,7 +48,13 @@ document.addEventListener('click', (event) => {
   // Check if the clicked element is the reset button
   const resetButton = document.querySelector('.reset-button');
   if (target === resetButton) {
-    stopButton.click();
+    // If Reset button is clicked while stopwatch is running, change stop button to start
+    if (stopButton) {
+      stopButton.textContent = 'Start';
+      stopButton.classList.toggle('start-button');
+      stopButton.classList.toggle('stop-button');
+    }
+
     resetInterval(); // Reset the interval
     return; // Exit the event listener
   }
